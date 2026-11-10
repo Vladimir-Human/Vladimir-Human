@@ -9,6 +9,13 @@
 
 <sub>EN: Open-source MCP servers and agent skills for the Russian-speaking web. Python.</sub>
 
+## Сейчас
+
+<sub>Ноябрь 2026</sub>
+
+- **ru-marketplace-mcp 2.9:** Авито для выбора б/у вещей. Резерв, условия сделки, проверки продавца, до трёх фото по запросу и цена со скидкой во время распродажи.
+- **humanizer-ru 4.2:** сверка фактов скриптом обязательна, когда агент может запускать команды. Сверить правку и проверить стиль можно [прямо в браузере](https://vladimir-human.github.io/humanizer-ru/).
+
 ## Проекты
 
 ### [ru-marketplace-mcp](https://github.com/Vladimir-Human/ru-marketplace-mcp)
@@ -44,4 +51,4 @@ npx skills add Vladimir-Human/humanizer-ru
 - **humanizer-ru** [v4.2.1](https://github.com/Vladimir-Human/humanizer-ru/releases/tag/v4.2.1) · 10 ноября 2026
 <!--RELEASES:END-->
 
-Вопросы и идеи — в issues нужного репозитория.
+**Связаться:** баги и вопросы — в issues ([ru-marketplace-mcp](https://github.com/Vladimir-Human/ru-marketplace-mcp/issues), [humanizer-ru](https://github.com/Vladimir-Human/humanizer-ru/issues)), идеи и обсуждения — в Discussions ([ru-marketplace-mcp](https://github.com/Vladimir-Human/ru-marketplace-mcp/discussions), [humanizer-ru](https://github.com/Vladimir-Human/humanizer-ru/discussions)).
