@@ -11,10 +11,25 @@
 
 ## Проекты
 
-| Проект | Что даёт | Состояние |
-|---|---|---|
-| [**ru-marketplace-mcp**](https://github.com/Vladimir-Human/ru-marketplace-mcp) | Wildberries, Ozon, Яндекс Маркет, Авито, AliExpress и другие площадки РФ и Китая как MCP-серверы и agent skills. Сравнение цен одним вызовом, только чтение, ключи API не нужны. `uvx ru-marketplace-mcp setup` | [![stars](https://img.shields.io/github/stars/Vladimir-Human/ru-marketplace-mcp?style=flat&label=%E2%98%85)](https://github.com/Vladimir-Human/ru-marketplace-mcp/stargazers) [![CI](https://github.com/Vladimir-Human/ru-marketplace-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/Vladimir-Human/ru-marketplace-mcp/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/ru-marketplace-mcp?style=flat)](https://pypi.org/project/ru-marketplace-mcp/) |
-| [**humanizer-ru**](https://github.com/Vladimir-Human/humanizer-ru) | Навык для Claude Code, Codex, Cursor и Gemini CLI: правит русский текст после нейросети и сверяет цифры, даты и имена. [Сайт со сравнением](https://vladimir-human.github.io/humanizer-ru/). `npx skills add Vladimir-Human/humanizer-ru` | [![stars](https://img.shields.io/github/stars/Vladimir-Human/humanizer-ru?style=flat&label=%E2%98%85)](https://github.com/Vladimir-Human/humanizer-ru/stargazers) [![CI](https://github.com/Vladimir-Human/humanizer-ru/actions/workflows/ci.yml/badge.svg)](https://github.com/Vladimir-Human/humanizer-ru/actions/workflows/ci.yml) [![release](https://img.shields.io/github/v/release/Vladimir-Human/humanizer-ru?style=flat)](https://github.com/Vladimir-Human/humanizer-ru/releases) |
+### [ru-marketplace-mcp](https://github.com/Vladimir-Human/ru-marketplace-mcp)
+
+[![stars](https://img.shields.io/github/stars/Vladimir-Human/ru-marketplace-mcp?style=flat&label=%E2%98%85)](https://github.com/Vladimir-Human/ru-marketplace-mcp/stargazers) [![CI](https://img.shields.io/github/actions/workflow/status/Vladimir-Human/ru-marketplace-mcp/ci.yml?branch=main&style=flat&label=CI)](https://github.com/Vladimir-Human/ru-marketplace-mcp/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/ru-marketplace-mcp?style=flat)](https://pypi.org/project/ru-marketplace-mcp/)
+
+Wildberries, Ozon, Яндекс Маркет, Авито, AliExpress и другие площадки РФ и Китая как MCP-серверы и agent skills. Сравнение цен одним вызовом, только чтение, ключи API не нужны.
+
+```bash
+uvx ru-marketplace-mcp setup
+```
+
+### [humanizer-ru](https://github.com/Vladimir-Human/humanizer-ru)
+
+[![stars](https://img.shields.io/github/stars/Vladimir-Human/humanizer-ru?style=flat&label=%E2%98%85)](https://github.com/Vladimir-Human/humanizer-ru/stargazers) [![CI](https://img.shields.io/github/actions/workflow/status/Vladimir-Human/humanizer-ru/ci.yml?branch=main&style=flat&label=CI)](https://github.com/Vladimir-Human/humanizer-ru/actions/workflows/ci.yml) [![release](https://img.shields.io/github/v/release/Vladimir-Human/humanizer-ru?style=flat)](https://github.com/Vladimir-Human/humanizer-ru/releases)
+
+Навык для Claude Code, Codex, Cursor и Gemini CLI: правит русский текст после нейросети и сверяет цифры, даты и имена. [Сайт со сравнением](https://vladimir-human.github.io/humanizer-ru/).
+
+```bash
+npx skills add Vladimir-Human/humanizer-ru
+```
 
 ## Как я работаю
 
