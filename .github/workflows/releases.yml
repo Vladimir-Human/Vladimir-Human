@@ -1,16 +1,33 @@
 name: Свежие релизы
 
+# M-WORKFLOW: R-RELEASES-FRESH (daily refresh), R-RELEASES-SAFE (tests first, README only)
 on:
   schedule:
-    - cron: "17 6 * * 1"   # по понедельникам
+    - cron: "17 6 * * *"   # каждый день: релизы выходят по несколько в неделю
   workflow_dispatch:
+  pull_request:            # только тесты, без обновления и коммита
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: releases-${{ github.event_name == 'pull_request' && github.ref || 'update' }}
+  cancel-in-progress: false
 
 jobs:
-  update:
+  test:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Проверить скрипт
+        run: python3 -m unittest discover -s tests -v
+
+  update:
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Обновить блок релизов
@@ -25,5 +42,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Обновить блок релизов"
+          git add README.md
+          git commit -m "Обновить блок релизов"
           git push
