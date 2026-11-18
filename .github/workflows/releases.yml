@@ -5,21 +5,31 @@ on:
   schedule:
     - cron: "17 6 * * *"   # каждый день: релизы выходят по несколько в неделю
   workflow_dispatch:
+  pull_request:            # только тесты, без обновления и коммита
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: releases
+  group: releases-${{ github.event_name == 'pull_request' && github.ref || 'update' }}
   cancel-in-progress: false
 
 jobs:
-  update:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Проверить скрипт
         run: python3 -m unittest discover -s tests -v
+
+  update:
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
       - name: Обновить блок релизов
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
