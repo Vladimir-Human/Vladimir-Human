@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modules: M-RELEASES = scripts/update_releases.py, M-WORKFLOW = .github/workflows/releases.yml
+     (three files in all, so no graph/index.xml). Tests run first in the workflow itself. -->
+<verification project="Vladimir-Human" method="unittest offline in CI before every update; real gh run by hand">
+  <entry id="V-M-RELEASES" module="M-RELEASES" file="scripts/update_releases.py" requirements="R-RELEASES-FRESH.every-flagship; R-RELEASES-SAFE.no-partial-block; R-RELEASES-SAFE.one-block; R-RELEASES-SAFE.timeout">
+    <test file="tests/test_update_releases.py" title="FreshBlock" checks="whole-file equality: two rows with different dates (18 ноября 2026, 1 марта 2026) in REPOS order; a second run with a newer humanizer-ru release changes only its row" />
+    <test file="tests/test_update_releases.py" title="SafeBlock" checks="either repo failing; each of the three fields alone missing/null/blank/multiline, a foreign or non-release URL, a non-date; markers missing, doubled, nested start, extra end, reversed, START not ending its line: exit 1, README bytes unchanged" />
+    <test file="tests/test_update_releases.py" title="GhBoundary" checks="real latest() with subprocess.run faked: JSON answers land in the block and the calls are gh api repos/Vladimir-Human/&lt;repo&gt;/releases/latest; every call has timeout=60 and TimeoutExpired fails safely; gh exit 1 or non-JSON from either repo fails safely" />
+    <test file="scripts/update_releases.py (real run 2026-11-18)" title="live GitHub" checks="printed [M-RELEASES][BLOCK_WRITE] updated with v2.11.1 and v4.3.0, both 18 ноября 2026, matching gh release view; latest('no-such-repo-zz9') raised LookupError with HTTP 404" />
+  </entry>
+  <gaps>
+    <gap id="G-RELEASES-REAL-RUN" ref="R-RELEASES-FRESH.real-run">Proven only by a run against live GitHub; the log line of each scheduled run is in the Actions log of the workflow.</gap>
+    <gap id="G-RELEASES-DAILY" ref="R-RELEASES-FRESH.daily">Proven by the Actions history after merge (one scheduled run per day); not checkable before the change is on main.</gap>
+    <gap id="G-PROFILE-SCREEN" ref="R-PROFILE-PAGE">The look on a phone is decided by the owner's screen; the agent checks the rendered page in a browser at phone width.</gap>
+  </gaps>
+</verification>

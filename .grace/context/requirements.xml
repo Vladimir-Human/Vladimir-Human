@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirements project="Vladimir-Human (GitHub profile README)">
+  <requirement id="R-RELEASES-FRESH" status="accepted" source="from code, unconfirmed: scripts/update_releases.py and the «Свежие релизы» block (PR #1); schedule changed from weekly to daily by the agent on 2026-11-18 after the block lagged four releases behind">
+    <says>The «Свежие релизы» block shows the latest GitHub release of each flagship (ru-marketplace-mcp, humanizer-ru): tag with a link and the date in Russian, refreshed every day.</says>
+    <invariant id="R-RELEASES-FRESH.every-flagship" owner="M-RELEASES" proof="test">The block holds exactly one line per flagship in REPOS order, each with that repo's own returned tag, release URL and publication date in Russian («1 марта 2026»); a new release of one repo changes only its line; every byte outside the block stays as it was.</invariant>
+    <invariant id="R-RELEASES-FRESH.real-run" owner="M-RELEASES" proof="log">A run against live GitHub prints «[M-RELEASES][BLOCK_WRITE] updated|unchanged:» with the tags that /releases/latest returns at that moment.</invariant>
+    <invariant id="R-RELEASES-FRESH.daily" owner="M-WORKFLOW" proof="log">The workflow «Свежие релизы» is scheduled daily (06:17 UTC); a successful run commits only README.md, and only when the block changed.</invariant>
+  </requirement>
+  <requirement id="R-RELEASES-SAFE" status="accepted" source="from code, unconfirmed: «keep the old block rather than publish an empty one» in update_releases.py; widened by the agent on 2026-11-18 after the GPT-6.2 Astra review found that one failed lookup silently dropped that project from the block">
+    <says>A failed or odd lookup never publishes a partial or empty block: README.md stays byte-for-byte as it was and the run fails visibly.</says>
+    <invariant id="R-RELEASES-SAFE.no-partial-block" owner="M-RELEASES" proof="test">If the lookup of any one flagship fails (gh error, bad JSON) or any one of tag_name, html_url, published_at is missing, null, blank, multiline, not a date, or the URL is not a release of that repo, main() returns 1 and README.md is unchanged.</invariant>
+    <invariant id="R-RELEASES-SAFE.one-block" owner="M-RELEASES" proof="test">Unless README.md has exactly one START marker ending its line and exactly one END marker after it, main() returns 1 and writes nothing (missing, doubled, nested start, extra end, reversed).</invariant>
+    <invariant id="R-RELEASES-SAFE.timeout" owner="M-RELEASES" proof="test">Every gh call carries timeout=60; a timeout counts as a failed lookup.</invariant>
+  </requirement>
+  <requirement id="R-PROFILE-PAGE" status="external" source="from code, unconfirmed: PR #2 «Профиль под телефон: крупный баннер, проекты без таблицы»; user 2026-11-18: «поработай над ним вместе с gpt 6.2 astra»">
+    <says>The profile reads well on a phone: projects come first, the banner text stays legible at phone width, every number and claim matches the project repositories on the day it was written.</says>
+  </requirement>
+</requirements>

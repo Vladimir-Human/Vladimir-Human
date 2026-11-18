@@ -1,26 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="t d">
   <title id="t">Vladimir · open-source для ИИ-агентов в рунете</title>
   <desc id="d">MCP-серверы и agent skills, Python. Проекты ru-marketplace-mcp и humanizer-ru.</desc>
   <style>
     .disp { font-family: "Literata", "PT Serif", Georgia, "Times New Roman", serif; }
     .body { font-family: "Golos Text", "PT Sans", "Segoe UI", system-ui, -apple-system, sans-serif; }
-    .mono { font-family: "IBM Plex Mono", "JetBrains Mono", Consolas, ui-monospace, Menlo, monospace; }
   </style>
-  <rect width="1200" height="440" rx="24" fill="#f7f8fa"/>
-  <line x1="48" y1="0" x2="48" y2="440" stroke="#b3312c" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="96" y="150" class="disp" font-size="104" font-weight="700" fill="#1b2230">Vladimir</text>
-  <text x="96" y="222" class="body" font-size="42" fill="#1b2230">Open-source</text>
-  <text x="96" y="276" class="body" font-size="42" fill="#1b2230">для ИИ-агентов в рунете</text>
-  <text x="96" y="344" class="body" font-size="32" fill="#4a5468">MCP-серверы · agent skills · Python</text>
-
-  <g transform="translate(700 70)">
-    <rect width="420" height="132" rx="18" fill="#ffffff" stroke="#d9dee8" stroke-width="2"/>
-    <text x="30" y="48" class="mono" font-size="24" fill="#4a5468">ru-marketplace-mcp</text>
-    <text x="30" y="100" class="body" font-size="34" fill="#1b2230">WB · Ozon <tspan fill="#2346a8">→</tspan> <tspan fill="#1f7a4a" font-weight="700">712 ₽</tspan></text>
-  </g>
-  <g transform="translate(700 238)">
-    <rect width="420" height="132" rx="18" fill="#ffffff" stroke="#d9dee8" stroke-width="2"/>
-    <text x="30" y="48" class="mono" font-size="24" fill="#4a5468">humanizer-ru</text>
-    <text x="30" y="100" class="body" font-size="34"><tspan fill="#b3312c" text-decoration="line-through">является</tspan><tspan fill="#2346a8"> → это</tspan></text>
-  </g>
+  <rect width="1200" height="400" rx="24" fill="#f7f8fa"/>
+  <line x1="48" y1="0" x2="48" y2="400" stroke="#b3312c" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="96" y="168" class="disp" font-size="128" font-weight="700" fill="#1b2230">Vladimir</text>
+  <text x="96" y="256" class="body" font-size="48" fill="#1b2230">Open-source для ИИ-агентов в рунете</text>
+  <text x="96" y="330" class="body" font-size="44" fill="#4a5468">MCP-серверы <tspan fill="#2346a8">·</tspan> agent skills <tspan fill="#2346a8">·</tspan> Python</text>
 </svg>

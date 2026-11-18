@@ -1,18 +1,25 @@
 name: Свежие релизы
 
+# M-WORKFLOW: R-RELEASES-FRESH (daily refresh), R-RELEASES-SAFE (tests first, README only)
 on:
   schedule:
-    - cron: "17 6 * * 1"   # по понедельникам
+    - cron: "17 6 * * *"   # каждый день: релизы выходят по несколько в неделю
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: releases
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Проверить скрипт
+        run: python3 -m unittest discover -s tests -v
       - name: Обновить блок релизов
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -25,5 +32,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Обновить блок релизов"
+          git add README.md
+          git commit -m "Обновить блок релизов"
           git push
