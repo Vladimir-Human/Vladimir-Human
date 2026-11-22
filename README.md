@@ -41,7 +41,7 @@ npx skills add Vladimir-Human/humanizer-ru
 
 <!--RELEASES:START-->
 - **ru-marketplace-mcp** [v2.11.2](https://github.com/Vladimir-Human/ru-marketplace-mcp/releases/tag/v2.11.2) · 21 ноября 2026
-- **humanizer-ru** [v4.4.0](https://github.com/Vladimir-Human/humanizer-ru/releases/tag/v4.4.0) · 18 ноября 2026
+- **humanizer-ru** [v4.4.0](https://github.com/Vladimir-Human/humanizer-ru/releases/tag/v4.4.0) · 22 ноября 2026
 <!--RELEASES:END-->
 
 ## Как я работаю
